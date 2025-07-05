@@ -4,7 +4,7 @@ import subprocess
 def confirm_exit():
     return messagebox.askyesno("Exit", "Do you wish to terminate?")
 
-def run_command(command):
+def stream_command(command):
     try:
         process = subprocess.Popen(
             command,
@@ -13,10 +13,8 @@ def run_command(command):
             stderr=subprocess.STDOUT,
             text=True
         )
-        output = ""
         for line in process.stdout:
-            output += line
+            yield line
         process.wait()
-        return output
     except Exception as e:
-        return f"Error: {e}"
+        yield f"Error: {e}\n"

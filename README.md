@@ -26,6 +26,15 @@ Make sure you're in the project root directory, then launch the app using:
 ```bash
 python -m termination.app
 ```
+For first time use, you could also just copy and paste the following into your Terminal:
+```bash
+git clone https://github.com/CRGSCodingCats/Termination.git
+cd Termination
+python -m venv venv
+source venv/bin/activate # On windows: venv\Scripts\activate
+pip install -r requirements.txt
+python -m termination.app
+```
 You’ll see a black-themed window with a welcome message and a quit button. Clicking "Exit" will prompt for confirmation before closing.
 ## Contributing
 Pull requests are welcome. For major changes, open an issue first to discuss proposed modifications.

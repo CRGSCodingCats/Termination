@@ -20,4 +20,7 @@ def create_main_ui(root, exit_callback, command_callback):
     output_box = scrolledtext.ScrolledText(root, width=60, height=10, bg="black", fg="lime", font=("Courier", 10))
     output_box.pack(pady=10)
 
-    return output_box
+    spinner_label = tk.Label(root, text="", fg="white", bg="black", font=("Courier", 10))
+    spinner_label.pack()
+
+    return output_box, spinner_label

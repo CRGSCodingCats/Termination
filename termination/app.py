@@ -1,6 +1,9 @@
 import tkinter as tk
 from termination.ui import create_main_ui
 from termination.logic import confirm_exit
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 class TerminationApp(tk.Tk):
     def __init__(self):

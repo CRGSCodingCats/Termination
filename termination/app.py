@@ -1,6 +1,6 @@
 import tkinter as tk
 from termination.ui import create_main_ui
-from termination.logic import confirm_exit, run_command
+from termination.logic import confirm_exit, stream_command
 import threading
 import itertools
 
@@ -24,21 +24,25 @@ class TerminationApp(tk.Tk):
         self.output_box.delete("1.0", tk.END)
         self.spinner_running = True
         self.update_spinner()
-        thread = threading.Thread(target=self.run_and_display, args=(cmd,))
+        thread = threading.Thread(target=self.stream_output_live, args=(cmd,))
         thread.start()
 
     def update_spinner(self):
         if self.spinner_running:
             next_char = next(self.spinner_chars)
+            current_output = self.output_box.get("1.0", tk.END)
             self.output_box.delete("1.0", tk.END)
-            self.output_box.insert(tk.END, f"Running: {next_char}")
+            self.output_box.insert(tk.END, f"{current_output.strip()}\nRunning: {next_char}")
+            self.output_box.see(tk.END)
             self.after(100, self.update_spinner)
 
-    def run_and_display(self, cmd):
-        output = run_command(cmd)
-        self.spinner_running = False
+    def stream_output_live(self, cmd):
         self.output_box.delete("1.0", tk.END)
-        self.output_box.insert(tk.END, output)
+        for line in stream_command(cmd):
+            self.output_box.insert(tk.END, line)
+            self.output_box.see(tk.END)
+            self.update_idletasks()
+        self.spinner_running = False
 
 def main():
     app = TerminationApp()

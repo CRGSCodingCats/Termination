@@ -35,7 +35,6 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python -m termination.app
 ```
-You’ll see a black-themed window with a welcome message and a quit button. Clicking "Exit" will prompt for confirmation before closing.
 ## Contributing
 Pull requests are welcome. For major changes, open an issue first to discuss proposed modifications.
 ## License

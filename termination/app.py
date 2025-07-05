@@ -10,7 +10,6 @@ class TerminationApp(tk.Tk):
         self.title("Termination")
         self.geometry("600x400")
         self.configure(bg="black")
-        self.iconbitmap("assets/Termination.ico")
 
         self.spinner_running = False
         self.spinner_chars = itertools.cycle('|/-\\-')

@@ -14,7 +14,7 @@ class TerminationApp(tk.Tk):
         self.spinner_running = False
         self.spinner_chars = itertools.cycle('|/-\\-')
 
-        self.output_box = create_main_ui(self, self.handle_exit, self.execute_command)
+        self.output_box, self.spinner_label = create_main_ui(self, self.handle_exit, self.execute_command)
 
     def handle_exit(self):
         if confirm_exit():
@@ -29,9 +29,7 @@ class TerminationApp(tk.Tk):
     def update_spinner(self):
         if self.spinner_running:
             next_char = next(self.spinner_chars)
-            # Update just the spinner line at the end without deleting output
-            self.output_box.insert(tk.END, f"\nRunning: {next_char}")
-            self.output_box.see(tk.END)
+            self.spinner_label.config(text=f"Running: {next_char}")
             self.after(100, self.update_spinner)
 
     def stream_output_live(self, cmd):

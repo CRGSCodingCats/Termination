@@ -14,7 +14,7 @@ cd Termination
 2. Create a virtual environment and activate it (optional but recommended):
 ```bash
 python -m venv venv
-source venv/bin/activate # On windows: venv\Scripts\activate
+venv\Scripts\activate
 ```
 3. Install dependencies:
 ```bash
@@ -31,7 +31,7 @@ For first time use, you could also just copy and paste the following into your T
 git clone https://github.com/CRGSCodingCats/Termination.git
 cd Termination
 python -m venv venv
-source venv/bin/activate # On windows: venv\Scripts\activate
+venv\Scripts\activate
 pip install -r requirements.txt
 python -m termination.app
 ```

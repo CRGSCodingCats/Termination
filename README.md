@@ -22,9 +22,9 @@ pip install -r requirements.txt
 ```
 Note: `tkinter` is bundled with standard Python installations. No external installation needed for basic UI.
 ## Usage
-Run app from Command Prompt or Windows PowerShell:
+Make sure you're in the project root directory, then launch the app using:
 ```bash
-python termination/app.py
+python -m termination.app
 ```
 You’ll see a black-themed window with a welcome message and a quit button. Clicking "Exit" will prompt for confirmation before closing.
 ## Contributing

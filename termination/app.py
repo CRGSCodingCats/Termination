@@ -1,6 +1,8 @@
 import tkinter as tk
 from termination.ui import create_main_ui
 from termination.logic import confirm_exit, run_command
+import threading
+import itertools
 
 class TerminationApp(tk.Tk):
     def __init__(self):

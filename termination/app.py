@@ -30,15 +30,16 @@ class TerminationApp(tk.Tk):
         if self.spinner_running:
             next_char = next(self.spinner_chars)
             self.spinner_label.config(text=f"Running: {next_char}")
-            self.after(100, self.update_spinner)
+            self.after(100, self.update_spinner)  # keep looping every 100ms
+        else:
+            self.spinner_label.config(text="")  # clear the spinner when done
 
     def stream_output_live(self, cmd):
         for line in stream_command(cmd):
             self.output_box.insert(tk.END, line)
             self.output_box.see(tk.END)
             self.update_idletasks()
-        self.spinner_running = False
-
+        self.spinner_running = False  # This ensures spinner stops
 
 def main():
     app = TerminationApp()

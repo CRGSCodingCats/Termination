@@ -1,6 +1,8 @@
 from tkinter import messagebox
 import subprocess
 import os
+os.chdir(os.path.expanduser("~"))  # changes dir to user's home
+
 
 def confirm_exit():
     return messagebox.askyesno("Exit", "Do you wish to terminate?")

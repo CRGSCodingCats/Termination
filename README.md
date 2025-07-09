@@ -4,7 +4,6 @@ Termination is a simple, modular GUI application built with Python’s `tkinter`
 - Minimalist interface with dark theme
 - Exit coinfirmation dialogue, because I don't like fustration
 - Modular code structure
-- Easy to expand: add command execution, process viewing, etc.
 ## Installation
 1. Clone the repository:
 ```bash

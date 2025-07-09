@@ -39,3 +39,5 @@ python -m termination.app
 Pull requests are welcome. For major changes, open an issue first to discuss proposed modifications.
 ## License
 This project is licensed under the MIT License. See `LICENSE` for details.
+## Other stuff:
+- When using `git clone`, make sure to add `%USERPROFILE%\Desktop\` onto the end of it.

@@ -12,9 +12,8 @@ class TerminationApp(tk.Tk):
         self.configure(bg="black")
 
         self.spinner_running = False
-        self.spinner_chars = itertools.cycle('|/-\\|/-\')
+        self.spinner_chars = itertools.cycle('|/-\\|/-\\')
 
-        # Modified to get spinner_label as well
         self.output_box, self.spinner_label = create_main_ui(self, self.handle_exit, self.execute_command)
 
     def handle_exit(self):

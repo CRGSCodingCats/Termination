@@ -26,7 +26,7 @@ Make sure you're in the project root directory, then launch the app using:
 ```bash
 python -m termination.app
 ```
-For first time use, you could also just copy and paste the following into your Terminal:
+For first time use, you could also just copy and paste the following into your Terminal (Windows only):
 ```bash
 git clone https://github.com/CRGSCodingCats/Termination.git
 cd Termination

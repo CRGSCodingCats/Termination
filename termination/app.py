@@ -12,8 +12,9 @@ class TerminationApp(tk.Tk):
         self.configure(bg="black")
 
         self.spinner_running = False
-        self.spinner_chars = itertools.cycle('|/-\\-')
+        self.spinner_chars = itertools.cycle('|/-\\|/-\')
 
+        # Modified to get spinner_label as well
         self.output_box, self.spinner_label = create_main_ui(self, self.handle_exit, self.execute_command)
 
     def handle_exit(self):
@@ -30,16 +31,16 @@ class TerminationApp(tk.Tk):
         if self.spinner_running:
             next_char = next(self.spinner_chars)
             self.spinner_label.config(text=f"Running: {next_char}")
-            self.after(100, self.update_spinner)  # keep looping every 100ms
+            self.after(100, self.update_spinner)
         else:
-            self.spinner_label.config(text="")  # clear the spinner when done
+            self.spinner_label.config(text="")  # Clear spinner when done
 
     def stream_output_live(self, cmd):
         for line in stream_command(cmd):
             self.output_box.insert(tk.END, line)
             self.output_box.see(tk.END)
             self.update_idletasks()
-        self.spinner_running = False  # This ensures spinner stops
+        self.spinner_running = False
 
 def main():
     app = TerminationApp()
